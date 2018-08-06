@@ -1,0 +1,16 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="./common/header.jsp" %>
+<html>
+<body>
+<h2>Hello example!</h2>
+<p>
+	<form action="" method="GET">
+	Username:<input type="text" name="username" />
+	<input type="submit" value="submit"/>
+	</form>
+</p>
+<p>当前数列表：</p>
+
+</body>
+</html>
