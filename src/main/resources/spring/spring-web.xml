@@ -12,27 +12,37 @@
 	<!-- 1.开启SpringMVC注解模式 -->
 	<!-- 简化配置： (1)自动注册DefaultAnootationHandlerMapping,AnotationMethodHandlerAdapter 
 		(2)提供一些列：数据绑定，数字和日期的format @NumberFormat, @DateTimeFormat, xml,json默认读写支持 -->
+		
+	<!-- 必须放在<mvc:annotation-driven>之前 -->    
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">    
+        <property name="messageConverters">    
+            <list>    
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">    
+                    <property name="supportedMediaTypes">    
+                        <list>    
+                            <value>text/plain;charset=UTF-8</value>  
+                            <value>text/html;charset=UTF-8</value>  
+                            <value>applicaiton/javascript;charset=UTF-8</value>    
+                        </list>    
+                    </property>    
+                </bean>    
+            </list>    
+        </property>    
+    </bean>  
 	<!-- mvc的注解驱动 -->
 	<mvc:annotation-driven />
-
+	
 	<!-- 2.静态资源默认servlet配置 (1)加入对静态资源的处理：js,gif,png (2)允许使用"/"做整体映射 -->
 	<mvc:default-servlet-handler />
-
+	
 	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
 		<property name="prefix" value="/WEB-INF/jsp/" /> <property name="suffix" 
 		value=".jsp" /> </bean> -->
 
-<!-- 	<bean
-		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-		<property name="messageConverters">
-			<list>
-				<bean
-					class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
-				<bean
-					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
-			</list>
-		</property>
-	</bean> -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"> 
+		<property name="messageConverters"> <list> <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" 
+		/> <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" 
+		/> </list> </property> </bean> -->
 
 	<bean id="filenameController"
 		class="org.springframework.web.servlet.mvc.UrlFilenameViewController" />
@@ -55,12 +65,9 @@
 		class="org.thymeleaf.spring4.view.ThymeleafViewResolver"> <property name="templateEngine" 
 		ref="templateEngine" /> <property name="order" value="1" /> <property name="characterEncoding" 
 		value="UTF-8" /> </bean> -->
-	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
-
-		<constructor-arg ref="dataSource" />
-
-	</bean> -->
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate"> 
+		<constructor-arg ref="dataSource" /> </bean> -->
 	<!-- 4.扫描web相关的bean -->
 	<context:component-scan base-package="com.duoduo.controller" />
-  	<context:component-scan base-package="com.duoduo.service" />
+	<context:component-scan base-package="com.duoduo.service" />
 </beans>
