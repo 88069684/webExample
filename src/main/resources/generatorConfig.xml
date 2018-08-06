@@ -23,15 +23,16 @@
 		<property name="beginningDelimiter" value="`" />
 		<property name="endingDelimiter" value="`" />
 		<!-- 为了防止生成的代码中有很多注释，比较难看，加入下面的配置控制 -->
-		<!-- <commentGenerator>
+		<commentGenerator>
 			<property name="suppressAllComments" value="true" />
 			<property name="suppressDate" value="true" />
-		</commentGenerator> -->
+		</commentGenerator>
 		<!-- 注释控制完毕 -->
 
 		<!-- 数据库连接 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="${jdbc.master.url}" userId="${jdbc.master.username}" password="${jdbc.master.password}">
+			connectionURL="${jdbc.master.url}" userId="${jdbc.master.username}"
+			password="${jdbc.master.password}">
 		</jdbcConnection>
 		<!-- java类型处理器 用于处理DB中的类型到Java中的类型，默认使用JavaTypeResolverDefaultImpl； 注意一点，默认会先尝试使用Integer，Long，Short等来对应DECIMAL和 
 			NUMERIC数据类型； -->
@@ -43,7 +44,7 @@
 		<!-- java模型创建器，是必须要的元素 负责：1，key类（见context的defaultModelType）；2，java类；3，查询类 
 			targetPackage：生成的类要放的包，真实的包受enableSubPackages属性控制； targetProject：目标项目，指定一个存在的目录下，生成的内容会放到指定目录中，如果目录不存在，MBG不会自动建目录 -->
 		<!-- 数据表对应的实体类 -->
-		<javaModelGenerator targetPackage="com.duoduo.entity"
+		<javaModelGenerator targetPackage="com.duoduo.dao.entity"
 			targetProject="src/main/java">
 			<!-- for MyBatis3/MyBatis3Simple 自动为每一个生成的类创建一个构造方法，构造方法包含了所有的field；而不是使用setter； -->
 			<property name="constructorBased" value="false" />
@@ -104,11 +105,11 @@
 			15，delimitAllColumns：设置是否所有生成的SQL中的列名都使用标识符引起来。默认为false，delimitIdentifiers参考context的属性 
 			注意，table里面很多参数都是对javaModelGenerator，context等元素的默认属性的一个复写； -->
 		<!-- 要对那些数据表进行生成操作，必须要有一个. -->
-		<table schema="mybatis" tableName="user_t" domainObjectName="User" mapperName="UserDao"
-			enableInsert="true" enableSelectByPrimaryKey="true"
+		<table schema="mybatis" tableName="user" domainObjectName="User"
+			mapperName="UserDao" enableInsert="true" enableSelectByPrimaryKey="true"
 			enableCountByExample="true" enableUpdateByExample="true"
-			enableDeleteByExample="true" enableSelectByExample="true"
-			selectByExampleQueryId="true">
+			enableUpdateByPrimaryKey="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true">
 		</table>
 	</context>
 </generatorConfiguration>

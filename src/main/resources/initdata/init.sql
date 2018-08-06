@@ -1,5 +1,6 @@
 CREATE DATABASE `test` /*!40100 DEFAULT CHARACTER SET utf8 */ ;
-CREATE TABLE `user_t` (
+use test;
+CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(40) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -7,4 +8,5 @@ CREATE TABLE `user_t` (
   `tiny_int` tinyint(1) DEFAULT NULL,
   `big_decimals` decimal(11,4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+insert into user set id=1,user_name='test',password='testpassword',age=18;
