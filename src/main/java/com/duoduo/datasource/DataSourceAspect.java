@@ -21,7 +21,7 @@ public class DataSourceAspect {
      public void before(JoinPoint point)  
         {         
               
-              
+             System.out.println("主从选择before方法");
              Object target = point.getTarget();  
              System.out.println(target.toString());  
              String method = point.getSignature().getName();  

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.duoduo.dao.UserDao;
-import com.duoduo.entity.User;
+import com.duoduo.dao.entity.User;
 
 @Controller
 @RequestMapping("/example")

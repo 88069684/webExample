@@ -146,7 +146,7 @@
 		<aop:aspect id="dataSourceAspect" ref="dataSourceAspect"
 			order="1">
 			<aop:pointcut id="tx"
-				expression="execution(* com.duoduo.service..*.*(..)) " />
+				expression="execution(* com.duoduo.dao..*.*(..)) " />
 			<aop:before pointcut-ref="tx" method="before" />
 		</aop:aspect>
 	</aop:config>
