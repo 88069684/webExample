@@ -1,1 +1,2 @@
 Spring+SpringMVC+Mybatis+Redis
+数据库主从读取配置
