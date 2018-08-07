@@ -17,7 +17,7 @@ public interface UserDao {
     int insert(User record);
 
     int insertSelective(User record);
-
+    @DataSource("write")
     List<User> selectByExample(UserExample example);
     @DataSource("read")
     User selectByPrimaryKey(Integer id);
