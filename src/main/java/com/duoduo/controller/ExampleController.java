@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,24 +15,28 @@ import com.alibaba.fastjson.JSON;
 import com.duoduo.dao.UserDao;
 import com.duoduo.dao.entity.User;
 import com.duoduo.dao.entity.UserExample;
+import com.duoduo.service.UserService;
 
 @Controller
 @RequestMapping("/example")
 public class ExampleController {
 	@Resource UserDao userDao;
+	@Autowired UserService userService;
 	@RequestMapping(value="index",method=RequestMethod.GET)
 	public String  index(){
 		User user =  userDao.selectByPrimaryKey(new Integer(1));
 		System.out.println(JSON.toJSON(user));
 		System.out.println(user.getPassword());
+		
 		return "example";
 	}
 	@RequestMapping(value="json",method=RequestMethod.GET)
 	@ResponseBody()
 	public String json(){
 		User user =  userDao.selectByPrimaryKey(new Integer(1));
+		User user2 = userService.getUser(new Integer(1));
 		System.out.println(JSON.toJSON(user));
-		String str = JSON.toJSON(user).toString();
+		String str = JSON.toJSON(user2).toString();
 		 return str;
 	}
 	@RequestMapping(value="list",method=RequestMethod.GET)
