@@ -14,7 +14,7 @@ public class TestController {
 	@RequestMapping(value = "testurl", method = RequestMethod.GET)
 	public String testUrlRedirect(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 //		return "test";
-		String url = "redirect:http://baidu.com/downloadRequestElecCont.action?contNo="; 
+		String url = "redirect:http://www.120lou.com"; 
 		return url;
 //		resp.sendRedirect(url);
 //        return new ModelAndView(url);  
