@@ -1,6 +1,5 @@
 package com.duoduo.controller;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
@@ -16,7 +15,7 @@ import com.duoduo.dao.UserDao;
 import com.duoduo.dao.entity.User;
 import com.duoduo.dao.entity.UserExample;
 import com.duoduo.service.UserService;
-
+import com.tiantian.util.security.AES;
 @Controller
 @RequestMapping("/example")
 public class ExampleController {
@@ -61,4 +60,11 @@ public class ExampleController {
 		String str = JSON.toJSON(res).toString();
 		return str;
 	}
+	public void descMsg() throws Exception
+    {
+    	String src = "VF+YPgPkVJ234vKBCUxPxA==";
+    	String key = "4B103DF3D3505AF871EFED63A78E3B75";
+    	byte[] mobile = AES.decrypt(src.getBytes(), key);
+        System.out.println(new String(mobile));
+    }
 }
