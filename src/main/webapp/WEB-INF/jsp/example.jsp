@@ -5,8 +5,10 @@
 <body>
 <h2>Hello example!</h2>
 <p>
-	<form action="" method="GET">
-	Username:<input type="text" name="username" />
+	<form action="./add" method="POST">
+	<p>Username:<input type="text" name="username" /></p>
+	<p>Password:<input type="text" name="password" /></p>
+	<p>Age:<input type="text" name="age" /></p>
 	<input type="submit" value="submit"/>
 	</form>
 </p>
