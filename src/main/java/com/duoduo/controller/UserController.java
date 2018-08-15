@@ -17,8 +17,8 @@ import com.duoduo.dao.entity.UserExample;
 import com.duoduo.service.UserService;
 import com.tiantian.util.security.AES;
 @Controller
-@RequestMapping("/example")
-public class ExampleController {
+@RequestMapping("/user")
+public class UserController {
 	@Resource UserDao userDao;
 	@Autowired UserService userService;
 	@RequestMapping(value="index",method=RequestMethod.GET)
@@ -60,6 +60,7 @@ public class ExampleController {
 		String str = JSON.toJSON(res).toString();
 		return str;
 	}
+	@RequestMapping(value="descmsg",method=RequestMethod.GET)
 	public void descMsg() throws Exception
     {
     	String src = "VF+YPgPkVJ234vKBCUxPxA==";
