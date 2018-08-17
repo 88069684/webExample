@@ -5,8 +5,6 @@ package com.duoduo.conf;
  *
  */
 
-import com.alibaba.druid.sql.ast.expr.SQLSequenceExpr.Function;
-
 public class RedisKey {
 	private static final String APPNAME = "web";
 	/** ===================================================用户有关信息======================================================== */
